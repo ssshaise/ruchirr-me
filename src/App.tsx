@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, ReactNode } from 'react';
 // Using neutral gray/slate for focus rings and accents instead of blue
-import { Mail, Linkedin, Github, Briefcase, Code, User, Home, Award, ExternalLink, Brain, Sigma, Orbit, LucideProps } from 'lucide-react'; // Added Brain, Sigma, Orbit, LucideProps
+import { Mail, Linkedin, Github, Briefcase, Code, User, Home, Award, ExternalLink, Brain, Sigma, Orbit } from 'lucide-react'; // Added Brain, Sigma, Orbit, LucideProps
 // Import Framer Motion hooks and components
 import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
 
@@ -56,21 +56,21 @@ const projectsData: Project[] = [
   },
    {
     id: 3,
-    title: 'TruthLens : AI-Powered Fake News Detector',
-    description: 'A powerful tool to detect fake news and misinformation using machine learning.',
-    technologies: ['Python', 'BERT', 'Scikit-learn', 'TensorFlow'],
+    title: 'ResearchGPT : Document Analysis and Theme Synthesis Chatbot',
+    description: 'A full-stack AI-powered web application to analyze and synthesize themes from multi-format document uploads using FastAPI and Streamlit.',
+    technologies: ['Python', 'Gemini-Pro', 'LangChain', 'FastAPI' , 'Streamlit'],
     liveUrl: '#',
-    repoUrl: 'https://github.com/ssshaise/TruthLens',
+    repoUrl: 'https://github.com/ssshaise/ResearchGPT',
     imageUrl: 'https://i.postimg.cc/fyCwpZqs/b8e96be9-a9a1-4af1-8902-b82671481e26.png'
   },
   {
     id: 4,
-    title: 'Dynamic Pricing Engine',
-    description: 'Developed an ML-based system optimizing product prices with XGBoost/Prophet, achieving 30% revenue improvement.',
-    technologies: ['Python', 'Machine Learning', 'Prophet', 'NumPy'],
+    title: 'PlantGuard: AI Leaf Disease                 Detector',
+    description: 'An AI-powered computer vision system for detecting and classifying plant leaf diseases with 92% accuracy using EfficientNet and DeepLabV3.',
+    technologies: ['Python', 'OpenCV', 'PyTorch', 'EfficientNet' , 'DeepLabV3'],
     liveUrl: '#',
     repoUrl: 'https://github.com/ssshaise/',
-    imageUrl: 'https://i.postimg.cc/pXD2kbXd/unnamed.png'
+    imageUrl: 'https://i.postimg.cc/3xLHT1wQ/Gemini-Generated-Image-hujewvhujewvhuje.png'
   },
   {
     id: 5,
@@ -168,11 +168,6 @@ const CardHeader: React.FC<{ children: React.ReactNode; className?: string }> = 
   </div>
 );
 // CardTitle component (Base component, HoverableText will wrap this)
-const CardTitle: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
-  <h3 className={`text-lg md:text-xl font-semibold text-gray-900 dark:text-gray-100 ${className}`}>
-    {children}
-  </h3>
-);
 // CardDescription component
 const CardDescription: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
   <p className={`text-sm text-gray-600 dark:text-gray-400 ${className}`}>
@@ -392,7 +387,7 @@ const TypingHeading: React.FC<{ text: string; className?: string; typingSpeed?: 
 // Ensure these are defined before being used in Hero
 
 // Character Component (Helper for ScatteringText - Simplified Logic)
-const Character: React.FC<{ children: ReactNode; scrollYProgress: MotionValue<number>; index: number; totalChars: number }> = ({ children, scrollYProgress, index, totalChars }) => {
+const Character: React.FC<{ children: ReactNode; scrollYProgress: MotionValue<number>; index: number; totalChars: number }> = ({ children, scrollYProgress }) => {
     const randomXSeed = useRef(Math.random() * 2 - 1); // -1 to 1
     const randomYSeed = useRef(Math.random() * 2 - 1); // -1 to 1
     const randomRotateSeed = useRef(Math.random() * 2 - 1); // -1 to 1
@@ -507,7 +502,7 @@ const Hero: React.FC = () => (
 );
 
 // About
-const About: React.FC = () => ( <section id="about" className="py-16 md:py-24 bg-white dark:bg-gray-900 overflow-hidden"> <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"> <AnimatedHeading text="About Me" className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-gray-100 mb-12" /> <div className="grid md:grid-cols-2 gap-10 items-center"> <div> <img src="https://i.postimg.cc/25Z9Kybp/uriel-sc-11-KDti-UWRq4-unsplash.jpg" alt="About me illustration or photo" className="rounded-lg shadow-md w-full h-auto object-cover" onError={(e) => { const target = e.target as HTMLImageElement; target.onerror = null; target.src='https://placehold.co/600x400/cccccc/ffffff?text=Img+Error'; } } /> </div> <div className="text-gray-700 dark:text-gray-300 space-y-4 text-base md:text-lg"> <p> Hello! I'm Ruchir, a Student/Data Scientist based in Delhi. I'm passionate about uncovering meaningful insights from data, building intelligent systems, and solving real-world problems using machine learning, NLP, and data-driven decision-making. . </p> <p> Being a fresher, I specialize in Machine Learning, AI Model Developemnt, Data Visulaisation, Data Cleaning and SQL. Apart from that, I am also skilled in Full Stack Development using MERN Stack. I enjoy tackling complex problems and turning ideas into reality through code. </p> <p> My technical toolkit includes: Python, Scikit Learn, MatplotLib, TenserFlow, R, SQL, React, Node.js, TypeScript, Docker, AWS, etc. I'm always eager to learn new technologies and improve my craft. </p> <p> When I'm not coding, you can find me playing Football, instruments, clicking photos, writing and reading books - espically Classics. </p> <Button href="https://drive.google.com/file/d/17u4q62hI5EaDVpW2z9B-9x6k5EbceFzz/view?usp=sharing" target="_blank" rel="noopener noreferrer" variant="secondary" className="mt-4"> Download Resume </Button> </div> </div> </div> </section> );
+const About: React.FC = () => ( <section id="about" className="py-16 md:py-24 bg-white dark:bg-gray-900 overflow-hidden"> <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"> <AnimatedHeading text="About Me" className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-gray-100 mb-12" /> <div className="grid md:grid-cols-2 gap-10 items-center"> <div> <img src="https://i.postimg.cc/25Z9Kybp/uriel-sc-11-KDti-UWRq4-unsplash.jpg" alt="About me illustration or photo" className="rounded-lg shadow-md w-full h-auto object-cover" onError={(e) => { const target = e.target as HTMLImageElement; target.onerror = null; target.src='https://placehold.co/600x400/cccccc/ffffff?text=Img+Error'; } } /> </div> <div className="text-gray-700 dark:text-gray-300 space-y-4 text-base md:text-lg"> <p> Hello! I'm Ruchir, a Student/Data Scientist based in Delhi. I'm passionate about uncovering meaningful insights from data, building intelligent systems, and solving real-world problems using machine learning, NLP, and data-driven decision-making. . </p> <p> Being a fresher, I specialize in Machine Learning, AI Model Developemnt, Data Visulaisation, Data Cleaning and SQL. Apart from that, I am also skilled in Full Stack Development using MERN Stack. I enjoy tackling complex problems and turning ideas into reality through code. </p> <p> My technical toolkit includes: Python, Scikit Learn, MatplotLib, TenserFlow, R, SQL, React, Node.js, TypeScript, Docker, AWS, etc. I'm always eager to learn new technologies and improve my craft. </p> <p> When I'm not coding, you can find me playing Football, instruments, clicking photos, writing and reading books - espically Classics. </p> <Button href="https://drive.google.com/file/d/1YdYwnNrr8Jm_ESHhyZk_WmhDnswOzmmS/view?usp=sharing" target="_blank" rel="noopener noreferrer" variant="secondary" className="mt-4"> Download Resume </Button> </div> </div> </div> </section> );
 // Experience
 const Experience: React.FC = () => ( <section id="experience" className="py-16 md:py-24 bg-gray-100 dark:bg-black overflow-hidden"> <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"> <AnimatedHeading text="Work Experience" className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-gray-100 mb-12" /> <div className="space-y-8 relative border-l-2 border-gray-300 dark:border-gray-700 pl-6 md:pl-10"> {experienceData.map((exp) => ( <AnimatedSection key={exp.id} className="relative" delay={exp.id * 100}> <div className="absolute -left-[29px] md:-left-[45px] top-1 h-4 w-4 rounded-full bg-gray-800 dark:bg-gray-300 border-2 border-gray-100 dark:border-black"></div> <Card className="ml-4 hover:shadow-lg hover:-translate-y-0"> <CardHeader> <HoverableText as="h3" text={exp.role} className="text-lg md:text-xl font-semibold text-gray-900 dark:text-gray-100" /> <CardDescription> {exp.company} {exp.location ? `| ${exp.location}` : ''} </CardDescription> <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{exp.duration}</p> </CardHeader> <CardContent> <ul className="list-disc list-inside space-y-2 text-sm md:text-base text-gray-600 dark:text-gray-300"> {exp.description.map((point, idx) => ( <li key={idx}>{point}</li> ))} </ul> </CardContent> </Card> </AnimatedSection> ))} </div> </div> </section> );
 // Certifications
